@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<!-- Mirrored from themedesigner.in/demo/admin-press/main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 May 2019 05:15:32 GMT -->
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" sizes="16x16"
+	href="assets/images/bisag_logo.png">
+<title>MetaData Report</title>
+<!-- Bootstrap Core CSS -->
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- chartist CSS -->
+<link href="assets/plugins/chartist-js/dist/chartist.min.css"
+	rel="stylesheet">
+<link href="assets/plugins/chartist-js/dist/chartist-init.css"
+	rel="stylesheet">
+<link
+	href="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css"
+	rel="stylesheet">
+<!-- morris CSS -->
+<link href="assets/plugins/morrisjs/morris.css" rel="stylesheet">
+<!-- Vector CSS -->
+<link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css"
+	rel="stylesheet" />
+<!-- Custom CSS -->
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="css/map.css" rel="stylesheet">
+<!-- You can change the theme colors from here -->
+<link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
+<link href="ol/ol.css" rel="stylesheet">
+<link href="customol/css/customOlStyle.css" rel="stylesheet" />
+<link
+	href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<link
+	href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/icons.css" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+<input type="hidden" id="contextPath"
+		value="<%=request.getContextPath()%>" readonly></input>
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+
+	 <!-- ============================================================== -->
+        <header class="topbar" style="background: #1976d2;">
+				<nav class="navbar top-navbar navbar-expand-md navbar-light">
+				<!-- ============================================================== -->
+				<!-- Logo -->
+				<!-- ============================================================== -->
+				<div class="navbar-header" style="background: #fff0;">
+					<a class="navbar-brand" href="admin" style="color: white;"> <!-- Logo icon -->
+						<b> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+							<!-- Dark Logo icon --> <!--    <img th:src="@{assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
+							<!-- Light Logo icon --> <!--   <img th:src="@{assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
+					</b> <!--End Logo icon --> <!-- Logo text --> <span> <!-- dark Logo text -->
+							<img th:src="@{assets/images/emb.png}" alt="homepage" class="dark-logo"
+							style="height: 48px;" /> <!-- Light Logo text --> <img
+							th:src="@{assets/images/logo-light-text.png}" class="light-logo"
+							alt="homepage" />National Master Plan
+					</span>
+					</a>
+				</div>
+				<!-- ============================================================== -->
+				<!-- End Logo -->
+				<!-- ============================================================== -->
+				<div class="navbar-collapse justify-content-end">
+					<!-- ============================================================== -->
+					<!-- toggle and nav items -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav mr-auto mt-md-0">
+						<!-- This is  -->
+						<li class="nav-item"><a
+							class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+							href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
+
+						<!-- ============================================================== -->
+						<!-- Comment -->
+						<!-- ============================================================== -->
+
+						<!-- ============================================================== -->
+						<!-- End Comment -->
+						<!-- ============================================================== -->
+						<!-- ============================================================== -->
+						<!-- Messages -->
+						<!-- ============================================================== -->
+
+						<!-- ============================================================== -->
+						<!-- End Messages -->
+						<!-- ============================================================== -->
+						<!-- ============================================================== -->
+						<!-- Messages -->
+						<!-- ============================================================== -->
+
+						<!-- ============================================================== -->
+						<!-- End Messages -->
+						<!-- ============================================================== -->
+					</ul>
+					
+					
+					<!-- ============================================================== -->
+					<!-- User profile and search -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav my-lg-0">
+						<!-- ============================================================== -->
+						<!-- Search -->
+						<!-- ============================================================== -->
+						<!-- <li class="nav-item dropdown mega-dropdown"><a
+							class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+							href="addproject"> <i class="ti-write"></i></a></li> -->
+						<!-- <li  class="nav-item dropdown mega-dropdown">
+						<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="notification">
+						<i class="ti-bell"></i></a>
+						</li>	 -->
+						<!-- <li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="mdi mdi-file"></i>
+								<div class="">
+									<span class="heartbit"></span> <span class="point"></span>
+								</div>
+						</a>
+							<div class="dropdown-menu mailbox animated slideInUp" style="width: auto; background-color: #ffffffb0; left: -115px;">
+								<ul>
+									<li>
+										<div style="text-align: center;">
+											Message
+											<a href="projectreport" class="btn btn-block btn-outline-info">Report </a>
+										</div>
+									</li>
+
+								</ul>
+							</div></li>	 -->
+							
+								
+					
+
+						 <!-- <li class="nav-item "><a onclick="Ministry_Buttons()" data-toggle="tooltip" title="Ministry"
+							class="nav-link  text-muted text-muted waves-effect waves-dark"
+							href="#"  > <img th:src="@{assets/images/ministry_icon.png}" height="20px;"> -->
+								<div class="">
+									<span class="heartbit"></span> <span class="point"></span>
+								</div>
+						</a></li> 
+				
+
+<li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" th:href="@{/map}" ><i class="mdi mdi-web"></i></a> </li>
+						<!-- ============================================================== -->
+						<!-- Language -->
+						<!-- ============================================================== -->
+
+						<!-- ============================================================== -->
+						<!-- Profile -->
+						<!-- ============================================================== -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+							href="#" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"><i class="fa fa-power-off"></i> </a>
+							<div class="dropdown-menu dropdown-menu-right scale-up">
+								<ul class="dropdown-user">
+									<li ><a href="logout1"><i class="fa fa-power-off"></i>
+											Logout</a></li>
+								</ul>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		  <div class="page-wrapper">
+		
+            <div class="container-fluid">
+		
+					<div class="row">
+
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="table-responsive">
+									<h2 style="text-align: center;">Metadata Report</h2>
+									<table id="metadatatable" class="table display color-table " style="height: 335px; width: 100%;">
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<form id="deletenocggl"  th:action="@{/deleteuserggl}" method="POST" >
+		      <!--     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+               <input class="jsondatanoc2" type="hidden" name="jsondatanoc2" id="jsondatanoc2" value=""/>
+            </form>		
+	<script src="assets/plugins/jquery/jquery.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.slimscroll.js"></script>
+	<script src="assets/js/waves.js"></script>
+	<script src="assets/js/sidebarmenu.js"></script>
+	<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+	<script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<script src="assets/js/custom.min.js"></script>
+	<script src="assets/plugins/chartist-js/dist/chartist.min.js"></script>
+	<script src="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src="assets/plugins/raphael/raphael-min.js"></script>
+	<script src="assets/plugins/morrisjs/morris.min.js"></script>
+	<script src="assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+	<script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="assets/js/dashboard2.js"></script>
+	<script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+	<script src=https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="mis/js/customscripts/addgeomreport.js"></script>
+	<script src="mis/js/customscripts/filter.js"></script>
+	<script type="text/javascript" th:inline="javascript">	
+	
+		$(document).ready(function() {
+			
+		
+			var contextRoot = /*[[@{/}]]*/ '';
+			 var data = [[${lista}]];
+				
+				$('#metadatatable').DataTable({
+					dom : 'Bfrtip',
+					buttons : [ 'csv' ],
+					data : data,
+					
+					"columnDefs": [
+		                
+		                 {  "targets":7 , "name": "acciones", visible: true, data: "id",
+		                     "render": 
+		                         function ( data, type, row, meta ) {
+							
+		                    	 
+							
+		                            return '<div class="btn-toolbar" role="toolbar"><a href="'+contextRoot+'layerinfo?id='+data+'" type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o"></i></div>';
+		                        }
+		                  },
+		                  
+// 		                  {  "targets":8 , "name": "acciones", visible: true, data: "id",
+// 			                     "render": 
+// 			                         function ( data, type, row, meta ) {
+								
+								
+								
+// 			                            return '<div class="btn-toolbar" role="toolbar"><button onclick="deletebyId('+data+')" type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o"></i></button></div>';
+// 			                        }
+// 			                  },
+			              	{  "targets":8, "name": "acciones", visible: true, data: "id",
+				                     "render": 
+				                         function ( data, type, row, meta ) {
+									
+// 				                    	 var encryptedAES = CryptoJS.AES.encrypt(data.toString(), "My approval key");
+									
+				                            return '<div class="btn-toolbar" role="toolbar"><button onclick="delete1('+data+')" type="button" class="btn btn-outline-info"><i class="fa fa-trash"></i></button></div>';
+				                        }
+				                  }, 
+					],
+					"columns": [
+// 						{ title: 'ID', data: 'id', "render": 
+// 	                         function ( data, type, row, meta ) {
+// 						   return '<a href="'+contextRoot+'layerinfo?id='+data+'">'+data+'</a>';
+// 						}},
+						{ title: 'Id', data: 'id' },
+						{ title: 'Dataset Name', data: 'dataset_name' },
+						{ title: 'Survey Year', data: 'survey_year' },
+						{ title: 'Corporate Name', data: 'corporate_name' },
+						{ title: 'Layer', data: 'selectedlayer' },
+						{ title: 'City', data: 'city' },
+						{ title: 'Data Prepared By', data: 'data_prepared_by' },
+						{ title: 'Edit', data: 'id' },
+						{ title: 'Delete', data: 'id' },
+						{ title: 'UserName', data: 'username' },
+// 						{ title: 'Forward', data: 'id', render: 
+// 	                         function ( data, type, row, meta ) {
+							
+// //					        return '<input type="button"  onclick="''+Myzoom()+"  value="' + $('<div/>').text(data).html() + '">';
+
+//  						   return '<form  method="post" enctype="multipart/form-data"  action='+contextRoot+'revenueprivateformf?id='+data+' >'+"<input type='submit' value='Forward'></input> "+'</form>';
+// 						}}
+// 						href='+contextRoot+'revenueprivateform?id='+data+'
+					],
+					
+				});		
+		});
+		
+		
+// 		function delete1(id){
+			
+			
+			
+// 			  swal({
+// 			      title: "Are you sure?",
+// 			      text: "You Want to delete this data..",
+// 			      icon: "warning",
+// 			      buttons: true,
+// 			      dangerMode: true,
+// 			    })
+// 			      .then((willDelete) => {
+// 			        if (willDelete) {
+
+// 			          var data = deletebyId(id);
+// 			         // console.log(data)
+// 			          if (data == null) {
+
+			        	 
+// 			        	  window.open('metadataReport', '_self');
+			        	  
+// 			            swal({
+// 			              title: "You have deleted data!",
+// 			              icon: "success",
+// 			            });
+// 			          }
+
+// 			        } else {
+// 			          swal({
+// 			           title: "Your data is safe!",
+// 			            icon : "error"
+// 			          });
+// 			        }
+// 			      });
+			
+				
+// 				}
+		function delete1(id){
+			
+			//var encryptedAES = CryptoJS.AES.encrypt(id.toString(), "My approval key");
+		    $(".jsondatanoc2").attr("value",id.toString());
+					    $("#deletenocggl").submit();
+					
+				}
+		
+
+
+// 	function deletebyId(id)
+// 		{
+// 		alert()
+// 		var contextRoot = /*[[@{/}]]*/ '';
+			
+// 			 var data=null;
+// 				$.ajax({
+// 					url:contextRoot+"deletemetadata/"+id,
+// 					method:"POST",
+// 					dtaType:"json",
+// 					async: false,
+// 					data:{},
+// 					success:function(j)
+// 					{
+
+// 						 data=j;  
+						 
+							  
+// 					},
+// 					error:function (error)
+// 					{
+// 						//alert(error);
+// 					}
+// 				});
+// 				return data;
+
+// 		}
+	
+
+	</script>
+</body>
+</html>

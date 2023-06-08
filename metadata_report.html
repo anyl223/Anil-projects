@@ -1,0 +1,447 @@
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<!-- Mirrored from themedesigner.in/demo/admin-press/main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 May 2019 05:15:32 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" sizes="16x16"
+	th:href="@{/assets/images/bisag_logo.png}">
+<title>National Master Plan</title>
+<!-- Bootstrap Core CSS -->
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+<!-- chartist CSS --><!-- 
+<link th:href="@{assets/plugins/chartist-js/dist/chartist.min.css}"
+	rel="stylesheet">
+<link th:href="@{assets/plugins/chartist-js/dist/chartist-init.css}"
+	rel="stylesheet"> -->
+<!-- <link
+	th:href="@{assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css}"
+	rel="stylesheet"> -->
+<!-- morris CSS -->
+<!-- <link th:href="@{assets/plugins/morrisjs/morris.css}" rel="stylesheet"> -->
+<!-- Vector CSS -->
+<link th:href="@{/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css}"
+	rel="stylesheet" />
+<!-- Custom CSS -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet">
+<link th:href="@{ css/map.css}" rel="stylesheet">
+
+<!-- <link th:href="@{assets/css/colors/blue.css}" id="theme" rel="stylesheet">
+<link th:href="@{ol/ol.css}" rel="stylesheet">
+<link th:href="@{customol/css/customOlStyle.css}" rel="stylesheet" /> -->
+<link
+	th:href="@{https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css}">
+<link
+	th:href="@{https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/assets/css/icons.css}" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://use.fontawesome.com/76fb3caf4a.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" th:inline="javascript">	
+		$(document).ready(function() {
+			var contextRoot = /*[[@{/}]]*/ '';
+			 var token = [[${_csrf.token}]];
+			 document.getElementById("tcn").value = token;
+			 
+			
+		});
+		</script>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+<style>
+.topbar{top:0!important;bottom:auto!important}
+</style>
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+<input type="hidden" id="contextPath" th:value="@{/}" readonly></input>	
+<input type="hidden" id="contextPath"
+		value="<%=request.getContextPath()%>" readonly></input>
+		<input type="hidden" id="tcn"  ></input>
+		
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+
+	 <!-- ============================================================== -->
+        <header class="topbar fixed-top" style="background: #1976d2;">
+			<nav class="navbar top-navbar navbar-expand-md navbar-light">
+				<!-- ============================================================== -->
+				<!-- Logo -->
+				<!-- ============================================================== -->
+				<div class="navbar-header" style="background: #fff0;">
+					<a class="navbar-brand" href="admin" style="color: white;"> <!-- Logo icon -->
+						<b> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+							<!-- Dark Logo icon --> <!--    <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
+							<!-- Light Logo icon --> <!--   <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
+					</b> <!--End Logo icon --> <!-- Logo text --> <span> <!-- dark Logo text -->
+							<img src=" assets/images/emb.png" alt="homepage" class="dark-logo"
+							style="height: 48px;" /> <!-- Light Logo text --> <img
+							src=" assets/images/logo-light-text.png" class="light-logo"
+							alt="homepage" />Metadata Report
+					</span>
+					</a>
+				</div>
+				<!-- ============================================================== -->
+				<!-- End Logo -->
+				<!-- ============================================================== -->
+				<div class="navbar-collapse justify-content-end">
+					<!-- ============================================================== -->
+					<!-- toggle and nav items -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav mr-auto mt-md-0">
+						<!-- This is  -->
+						<li class="nav-item"><a
+							class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+							href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
+
+					
+					</ul>
+					<!-- ============================================================== -->
+					<!-- User profile and search -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav my-lg-0">
+
+						
+
+							<li class="nav-item dropdown mega-dropdown"> <a title="map" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" th:href="@{/admin}" ><i class="mdi mdi-web"></i></a>
+                          
+                        </li>
+
+
+            
+
+
+
+
+					</ul>
+				</div>
+			</nav>
+		</header>
+		  <div class="page-wrapper">
+		  <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles justify-content-center"  >
+               
+              
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                    
+                        <!-- <div class="card">
+                            <div class="card-body bg-info">
+                                Row
+                                <div class="row">
+                                    <div class="col-12">
+                                    <h1 class="text-white">
+                                    
+                                    <i class="mdi mdi-database" th:text="${completestatus.totals}"></i></h1>  <h5 class="text-white">Total</h5></div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                    
+                        <div class="card">
+                            <div class="card-body bg-warning" >
+                                Row
+                                <div class="row">
+                                    <div class="col-12"><h1 class="text-white">
+                                    
+                                    <i class="mdi mdi-exclamation" th:text="${completestatus.pending}"></i></h1> <h5 class="text-white">Total Pending</h5></div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Column -->
+                   <!--  <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body bg-danger">
+                                Row
+                                <div class="row">
+                                    <div class="col-12"><h1 class="text-white">
+                                    
+                                    <i class="mdi mdi-window-close" th:text="${completestatus.rejected}"></i></h1> <h5 class="text-white">Total Rejected</h5></div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+                     <!--  <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body bg-success">
+                                Row
+                                <div class="row">
+                                    <div class="col-12"><h1 class="text-white">
+                                    
+                                    <i class="mdi mdi-check" th:text="${completestatus.approved}"></i></h1> <h5 class="text-white">Total Approved</h5></div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+                      </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+		
+					<div class="row">
+
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+
+								<div class="table-responsive">
+								     <table id="notificationtableuser" class="table display color-table " style="height: 335px; width: 100%;"></table>
+								     <h4 style="text-align: center;"></h4>
+									<table id="notificationtable" class="table display color-table " style="height: 335px; width: 100%;"></table>
+									<!--       <table id="example" class="table">  -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			 <form id="editnoc" th:action="@{/noc}" method="post" >
+               <input class="jsondatanoc1" type="hidden" name="jsondatanoc1" id="jsondatanoc1" value=""/>
+            </form>	
+              <form id="viewonmapgap" th:action="@{/viewonmapnoc}" method="post" >
+<!--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+                <input class="viewonmapnoc" type="hidden" name="viewonmapnoc" id="viewonmapnoc" value=""/>
+               <input class="pageid" type="hidden" name="pageid" id="pageid" value=""/>
+               
+            </form>	
+            
+            <form id="viewonmapgap1" th:action="@{/viewonmapdata}" method="post" >
+<!--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+                <input class="viewonmapdata" type="hidden" name="viewonmapdata" id="viewonmapdata" value=""/>
+                
+               <input class="pageid" type="hidden" name="pageid" id="pageid" value=""/>
+               
+            </form>	
+            
+            
+        
+            
+            <form id="viewonmapod" th:action="@{/viewonmapod/{token}(token=${_csrf.token})}" method="post" >
+<!--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+               <input class="viewonmapod" type="hidden" name="viewonmapod" id="viewonmapod" value=""/>
+               <input class="viewonmaplayer" type="hidden" name="viewonmaplayer" id="viewonmaplayer" value=""/>
+               <input class="pageid" type="hidden" name="pageid" id="pageid" value=""/>
+            </form>
+            
+            
+            
+          
+            <form id="delete1"  th:action="@{/delete1/{token}(token=${_csrf.token})}" method="POST" >
+		            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+               <input class="jsondatanoc2" type="hidden" name="jsondatanoc2" id="jsondatanoc2" value=""/>
+            </form>	
+            
+            
+
+			</div>
+		</div>
+	
+<!-- 	<script src="assets/plugins/bootstrap/js/popper.min.js"></script> -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="assets/js/jquery.slimscroll.js"></script>
+	<script src="assets/js/waves.js"></script>
+	<script src="assets/js/sidebarmenu.js"></script>
+	<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+	<script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<script src=" assets/js/custom.min.js"></script>
+	<script src=" assets/plugins/chartist-js/dist/chartist.min.js"></script>
+	<script src=" assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src=" assets/plugins/raphael/raphael-min.js"></script>
+<!-- 	<script src="assets/plugins/morrisjs/morris.min.js"></script> -->
+	<script src=" assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+	<script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src=" assets/js/dashboard2.js"></script>
+	<script src=" assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+	<script src=https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js></script>
+	<script src=https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js></script>
+	<script src="mis/js/customscripts/addgeomreport.js"></script>
+	<script src="mis/js/customscripts/filter.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+	<!--       stop inspect  -->
+   <script th:src="@{/customol/js/Stopinspect.js}"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript" th:inline="javascript">	
+		$(document).ready(function() {
+			
+			var contextRoot = /*[[@{/}]]*/ '';
+			
+			
+			 var data = [[${data}]];
+			 contextPath = $('#contextPath').val();
+			
+				$('#notificationtableuser').DataTable({
+					dom : 'Bfrtip',
+					buttons : [ 'csv' ],
+					data : data,	
+					
+					"columnDefs": [
+					{ 
+			               	 "targets": 16, "name": "actions", visible: true, data: "id",
+			                    "render": 
+			                        function ( data, type, row, meta ) {
+			                    	  return '<div class = "row"> <div class="btn-toolbar" role="toolbar"><a href="'+contextRoot+'metadata_view?id='+data+'" class="btn btn-outline-info">View</a></div></div>';  }
+				                },
+		                
+		           /*       {  "targets": , "name": "acciones", visible: true, data: "id",
+		                     "render": 
+		                         function ( data, type, row, meta ) {
+							
+		                    		var encryptedAES = CryptoJS.AES.encrypt(data.toString(), "My approval key");
+
+		                            return '<div class="btn-toolbar" role="toolbar"><button onclick="editreport(\''+encryptedAES+'\')" type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o"></i></div>';
+		                        }
+		                  }, */
+					/*	{  "targets":9, "name": "acciones", visible: true, data: "id",
+		                     "render": 
+		                         function ( data, type, row, meta ) {
+							
+		                    		var encryptedAES = CryptoJS.AES.encrypt(data.toString(), "My approval key");
+							
+		                            return '<div class="btn-toolbar" role="toolbar"><button onclick="Viewreportgap(\''+encryptedAES+'\')" type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o"></i></button></div>';
+		                        }
+		                  },*/
+		                  {  "targets":17, "name": "acciones", visible: true, data: "id",
+		                     "render": 
+		                         function ( data, type, row, meta ) {
+							
+		                    		//var encryptedAES = CryptoJS.AES.encrypt(data.toString(), "My approval key");
+							
+									var lname=row.selectedlayer;
+								
+		                            return '<div class="btn-toolbar" role="toolbar"><button onclick="Viewreport1(\''+data+'\',\''+lname+'\')" type="button" class="btn btn-outline-info"><i class="fa fa-map-marker"></i></button></div>';
+		                        }
+		                  },
+            ],  
+			"columns": [
+				
+				
+					{ title: 'Sr.No.', "render": 
+	                    function ( data, type, row, meta ) {
+	                    	return meta.row+1;
+	                	}
+					},
+				{ title: 'State Name', data: 'selectedstatename'},
+				{ title: 'Department Name', data: 'selecteddepartment'},
+				{ title: 'Sub Department Name', data: 'selectedsubdept'},
+				{ title: 'Layer Name', data: 'selectedlayer'},
+				{ title: 'Dataset Name', data: 'dataset_name'},
+				{ title: 'Keyword', data: 'keywords'},
+				{ title: 'Type', data: 'type'},
+				{ title: 'Revision No.', data: 'revision_no'},
+				{ title: 'Contact Person', data: 'contact_person'},
+				{ title: 'Organization', data: 'organization'},
+				{ title: 'Projection System', data: 'projection_system'},
+				//{ title: 'City', data: 'city'},
+				{ title: 'User Id', data: 'user_id'},
+				{ title: 'User Name', data: 'user_name'},
+				{ title: 'State Code', data: 'state_code'},
+				{ title: 'Date', data: 'date'},
+				{ title: 'View More', data: 'id' },
+				
+				
+
+				{title: 'View on Map', data: 'id'},
+					],
+				});
+		});
+		
+		
+		 function Viewreport1(id, selectedlayer){
+			
+	
+			$(".viewonmapod").attr("value",id.toString());
+			$(".viewonmaplayer").attr("value",selectedlayer);
+			
+		   
+			$("#viewonmapod").submit();
+	}
+		
+	
+		
+		
+function editreport(id){
+	
+    $(".jsondatanoc1").attr("value",id.toString());
+     $("#editnoc").submit();
+			
+		}
+
+function Viewreportgap(id){
+	
+	//var encryptedAES = CryptoJS.AES.encrypt(id.toString(), "My approval key");
+    $(".viewonmapnocgap").attr("value",id.toString());
+    
+			
+		
+			    $("#viewonmapgap").submit();
+			
+		}
+		
+		function Viewreportgap1(id){
+	//var encryptedAES = CryptoJS.AES.encrypt(id.toString(), "My approval key");
+    $(".viewonmapdata").attr("value",id.toString());
+	 $("#viewonmapgap1").submit();
+			
+		}
+function delete1(id){
+	
+	//var encryptedAES = CryptoJS.AES.encrypt(id.toString(), "My approval key");
+    $(".jsondatanoc2").attr("value",id.toString());
+    
+			
+		
+			    $("#delete1").submit();
+			
+		}
+		
+		
+	</script>
+	
+	<script type="text/javascript">
+	window.alert = window.console.log
+	
+
+   </script>
+</body>
+</html>
